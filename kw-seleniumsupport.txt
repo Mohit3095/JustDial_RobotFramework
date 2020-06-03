@@ -1,0 +1,16 @@
+*** Settings ***
+Library           DateTime
+Library           SeleniumLibrary
+
+*** Keywords ***
+Scroll To End On Dynamic Page
+    [Documentation]    This keyword is used to scroll to the bottom of a dynamic page
+    ${last_height}    Execute Javascript    return document.body.scrollHeight
+    FOR    ${i}    IN RANGE    1    999999
+        Execute Javascript    window.scrollTo(0, document.body.scrollHeight)
+        sleep    4s
+        ${new_height}    Execute Javascript    return document.body.scrollHeight
+        Capture Page Screenshot
+        Exit For Loop If    ${new_height} == ${last_height}
+        ${last_height}    Set Variable    ${new_height}
+    END
