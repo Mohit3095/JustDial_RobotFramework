@@ -2,9 +2,7 @@
 Library           SeleniumLibrary
 Library           Collections
 Library           OperatingSystem
-Library           keywords/system_keywords/Collections/CollectionSupport.py
-Library           keywords/system_keywords/Generic/SeleniumWeb.py
-Resource          keywords/robot_keywords/generic_keywords/kw-seleniumsupport.txt
+Resource          kw-seleniumsupport.txt
 
 *** Test Cases ***
 Read data from JustDial using webdriver
